@@ -2,10 +2,10 @@
 <div id="products">
     <% @products_list.each do |product| %>
         <div class="product">
-            <%= image_tag(product.image, style: "width: 100%; height: auto; border-radius: 4px;")%>
-            <p><%= product.name %></p>
+            <%= image_tag(product.image)%>
+            <h2><%= product.name %></h2>
             <p><%= product.description %></p>
-            <p>Price: $<%= number_with_precision(product.price, precision: 2) %></p>
+            <p><strong>Price: </strong>$<%= number_with_precision(product.price, precision: 2) %></p>
         </div>
     <% end %>
 </div>
