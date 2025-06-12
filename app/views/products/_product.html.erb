@@ -11,7 +11,7 @@
 
   <% if product.image.present? %>
     <p>
-      <img src="<%= product.image %>" alt="<%= product.name %>" style="width: 100%; height: auto; border-radius: 4px;">
+      <%= image_tag product.image, alt: "#{product.name} image"%>
     </p>
   <% end %>
 

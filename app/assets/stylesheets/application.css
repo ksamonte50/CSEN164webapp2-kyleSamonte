@@ -23,7 +23,7 @@ h1 {
 /* Layout */
 #products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
 }
@@ -42,6 +42,12 @@ h1 {
 
 .product strong {
     color: #222;
+}
+
+img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 4px;
 }
 
 /* Links and buttons */
@@ -72,7 +78,11 @@ a:hover {
 /* Form styles */
 form {
     max-width: 500px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+}
+
+form .button_to {
+    margin: 0 !important;
 }
 
 .field {
