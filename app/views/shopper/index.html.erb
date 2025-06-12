@@ -5,7 +5,8 @@
             <%= image_tag(product.image)%>
             <h2><%= product.name %></h2>
             <p><%= product.description %></p>
-            <p><strong>Price: </strong>$<%= number_with_precision(product.price, precision: 2) %></p>
+            <p style="margin-bottom: 20px"><strong>Price: </strong>$<%= number_with_precision(product.price, precision: 2) %></p>
+            <%= button_to("Add to Cart", lineitems_path(product_id: product), class: "add-to-cart") %>
         </div>
     <% end %>
 </div>
