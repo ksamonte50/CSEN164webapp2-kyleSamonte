@@ -2,8 +2,10 @@
     <ul>
         <% @cart.lineitems.each do |item| %>
             <li>
-                <%= item.product.name %> 
+                <%= item.quantity %> - <%= item.product.name %> - <%= item.product.price %>
             </li>
         <% end %>
     </ul>
+    <h3>Total Price: <%= @cart.total_price %></h3>
 </div>
+8 

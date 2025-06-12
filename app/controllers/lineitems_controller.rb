@@ -30,7 +30,10 @@ class LineitemsController < ApplicationController
     
     # Create new row in lineitems table, point to parent cart and product
     # @cart = current shopping cart
-    @lineitem = @cart.lineitems.build(product_id: params[:product_id])
+
+    # @lineitem = @cart.lineitems.build(product_id: params[:product_id])
+
+    @lineitem = @cart.add_item(params[:product_id])
 
     respond_to do |format|
       if @lineitem.save
