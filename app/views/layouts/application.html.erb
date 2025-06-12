@@ -25,7 +25,10 @@
   <body>
     <div style="border-bottom: 2px solid #ccc; text-align: center; margin-bottom: 20px;">
       <h1>Kyle's Online Sneaker Store</h1>
-      
+    </div>
+    <div id="cart">
+      <h2>Your Cart</h2>
+      <%= render(@cart) %>
     </div>
     <%= yield %>
   </body>

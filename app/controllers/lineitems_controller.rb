@@ -32,12 +32,13 @@ class LineitemsController < ApplicationController
     # @cart = current shopping cart
 
     # @lineitem = @cart.lineitems.build(product_id: params[:product_id])
-
+    
     @lineitem = @cart.add_item(params[:product_id])
 
     respond_to do |format|
       if @lineitem.save
-        format.html { redirect_to @lineitem.cart, notice: "Product was successfully added to cart." }
+        # format.html { redirect_to @lineitem.cart, notice: "Product was successfully added to cart." }
+        format.html { redirect_to root_url, notice: "Product was successfully added to cart." }
         format.json { render :show, status: :created, location: @lineitem }
       else
         format.html { render :new, status: :unprocessable_entity }

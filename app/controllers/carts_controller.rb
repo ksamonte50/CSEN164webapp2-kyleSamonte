@@ -51,8 +51,8 @@ class CartsController < ApplicationController
 
   # DELETE /carts/1 or /carts/1.json
   def destroy
-    @cart.destroy!
-
+    @cart.destroy
+    session[:cart_id] = nil
     respond_to do |format|
       format.html { redirect_to carts_path, status: :see_other, notice: "Cart was successfully destroyed." }
       format.json { head :no_content }

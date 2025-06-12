@@ -1,11 +1,11 @@
 <div id="<%= dom_id cart %>">
     <ul>
-        <% @cart.lineitems.each do |item| %>
+        <% cart.lineitems.each do |item| %>
             <li>
                 <%= item.quantity %> - <%= item.product.name %> - <%= item.product.price %>
             </li>
         <% end %>
     </ul>
-    <h3>Total Price: <%= @cart.total_price %></h3>
+    <h3>Total Price: <%= cart.total_price %></h3>
+    <%= button_to("Empty Cart", @cart, method: :delete, data: { confirm: "Are you sure you want to empty the cart?" }) %>
 </div>
-8 
