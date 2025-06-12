@@ -9,14 +9,14 @@
     <%= product.description %>
   </p>
 
-  <p>
-    <strong>Image:</strong>
-    <%= product.image %>
-  </p>
+  <% if product.image.present? %>
+    <p>
+      <img src="<%= product.image %>" alt="<%= product.name %>" style="width: 100%; height: auto; border-radius: 4px;">
+    </p>
+  <% end %>
 
   <p>
     <strong>Price:</strong>
-    <%= product.price %>
+    $<%= number_with_precision(product.price, precision: 2) %>
   </p>
-
 </div>
