@@ -1,2 +1,9 @@
 <div id="<%= dom_id cart %>">
+    <ul>
+        <% @cart.lineitems.each do |item| %>
+            <li>
+                <%= item.product.name %> 
+            </li>
+        <% end %>
+    </ul>
 </div>
