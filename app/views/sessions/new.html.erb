@@ -1,0 +1,67 @@
+<% content_for :title, "Admin Login" %>
+<div class="login-form">
+  <% if flash[:alert] %>
+    <div class="alert alert-danger"><%= flash[:alert] %></div>
+  <% end %>
+
+  <h2>Admin Login</h2>
+
+  <%= form_tag do %>
+    <div>
+      <%= label_tag :name, 'Username:' %>
+      <%= text_field_tag :name, params[:name], class: 'form-control' %>
+    </div>
+
+    <div>
+      <%= label_tag :password, 'Password:' %>
+      <%= password_field_tag :password, params[:password], class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Login" %>
+    </div>
+  <% end %>
+</div>
+
+<style>
+.login-form {
+  max-width: 300px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.login-form div {
+  margin-bottom: 1rem;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.actions {
+  text-align: center;
+}
+
+.alert {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+</style>

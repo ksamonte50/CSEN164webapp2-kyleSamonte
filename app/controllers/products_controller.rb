@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
+  include Admin
   before_action :set_product, only: %i[ show edit update destroy ]
+  skip_before_action :authorize, only: [:show] # Allow public access to view individual products
 
   # GET /products or /products.json
   def index

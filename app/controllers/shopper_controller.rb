@@ -3,6 +3,13 @@ class ShopperController < ApplicationController
   before_action(:set_cart)
 
   def index
-    @products_list = Product.order(:name)
+    @products_list = if params[:search]
+      Product.where('name LIKE ? OR description LIKE ? OR price LIKE ?', 
+                   "%#{params[:search]}%", 
+                   "%#{params[:search]}%",
+                   "%#{params[:search]}%").order(:name)
+    else
+      Product.order(:name)
+    end
   end
 end

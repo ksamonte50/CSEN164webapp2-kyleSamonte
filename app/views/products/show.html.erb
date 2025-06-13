@@ -1,10 +1,27 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @product %>
-
-<div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
-
-  <%= button_to "Destroy this product", @product, method: :delete %>
+<div class="product-detail" style="display: flex; gap: 20px; padding: 20px;">
+  <div class="product-image" style="flex: 1;">
+    <%= image_tag @product.image, style: "max-width: 100%; height: auto;" if @product.image.present? %>
+  </div>
+  
+  <div class="product-info" style="flex: 2;">
+    <h1><%= @product.name %></h1>
+    
+    <div class="price" style="font-size: 24px; margin: 20px 0;">
+      <strong>Price: </strong>
+      $<%= number_with_precision(@product.price, precision: 2) %>
+    </div>
+    
+    <div class="description" style="margin: 20px 0;">
+      <h3>Description:</h3>
+      <p><%= @product.description %></p>
+    </div>
+    
+    <%= button_to "Add to Cart", lineitems_path(product_id: @product), class: "add-to-cart", style: "padding: 10px 20px;" %>
+    
+    <div style="margin-top: 20px">
+      <%= link_to "Back to Products", root_path %>
+    </div>
+  </div>
 </div>
