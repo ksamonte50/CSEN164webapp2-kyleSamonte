@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  include(CurrentCart)
+  before_action :set_cart
   before_action :set_order, only: %i[ show edit update destroy ]
 
   # GET /orders or /orders.json
@@ -12,6 +14,9 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    if @cart.lineitems.empty?
+      redirect_to(root_url, notice: "Your cart is empty.")
+    end
     @order = Order.new
   end
 
@@ -23,9 +28,18 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
+    # Add parent pointer to lineitems table
+    @order.add_parent_pointer_for_lineitems(@cart)
+
+    
+
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: "Order was successfully created." }
+        Cart.destroy(session[:cart_id]) # Destroy the cart after order is placed
+        session[:cart_id] = nil # Clear the session cart ID
+        
+        # format.html { redirect_to @order, notice: "Order was successfully created." }
+        format.html { redirect_to root_url, notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :paytype, style: "display: block" %>
-    <%= form.text_field :paytype %>
+    <%= form.select :paytype, Order:: PAYMENT_TYPES, prompt: 'Select a payment type' %>
   </div>
 
   <div>
