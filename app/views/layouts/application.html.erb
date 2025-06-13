@@ -24,6 +24,12 @@
 
   <body>
     <header class="main-header">
+      <div class="search-form" style="text-align: center;">
+        <%= form_tag shopper_index_path, method: :get, class: "search-inputs" do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search products...", style: "min-width: 300px" %>
+          <%= submit_tag "Search", class: "button" %>
+        <% end %>
+      </div>
       <% if session[:admin_id] %>
         <div class="admin-nav">
           <span>Logged in as Admin</span>
@@ -49,53 +55,12 @@
     <div style="border-bottom: 2px solid #ccc; text-align: center; margin-bottom: 20px;">
       <h1>Kyle's Online Sneaker Store</h1>
     </div>
-    <div id="cart">
-      <h2>Your Cart</h2>
-      <%= render(@cart) %>
-    </div>
+    <div id="top-bar">
+      <div id="cart">
+        <h2>Your Cart</h2>
+        <%= render(@cart) %>
+      </div>
+    </div> 
     <%= yield %>
-
-    <style>
-      .main-header {
-        background: #f8f9fa;
-        padding: 1rem;
-        margin-bottom: 2rem;
-      }
-      
-      .admin-nav {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        justify-content: flex-end;
-      }
-
-      .admin-nav a {
-        text-decoration: none;
-        color: #333;
-      }
-
-      .admin-nav a:hover {
-        color: #007bff;
-      }
-
-      .notice, .alert {
-        padding: 0.75rem 1.25rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-radius: 0.25rem;
-      }
-
-      .notice {
-        color: #155724;
-        background-color: #d4edda;
-        border-color: #c3e6cb;
-      }
-
-      .alert {
-        color: #721c24;
-        background-color: #f8d7da;
-        border-color: #f5c6cb;
-      }
-    </style>
   </body>
 </html>

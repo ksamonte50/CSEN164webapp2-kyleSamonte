@@ -16,7 +16,7 @@ body {
 /* Typography */
 h1 {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
     color: #222;
 }
 
@@ -26,6 +26,72 @@ h1 {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
+}
+
+.main-header {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.admin-nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+.admin-nav a:hover {
+    color: #007bff;
+}
+
+.notice, .alert {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.notice {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* Cart */
+#cart{
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#cart-actions {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Search form */
+.search-inputs {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
 /* Product cards */
@@ -42,6 +108,14 @@ h1 {
 
 .product strong {
     color: #222;
+}
+.product a {
+    color: black;
+}
+
+.product a:hover {
+    color: gray;
+    text-decoration: none;
 }
 
 img {

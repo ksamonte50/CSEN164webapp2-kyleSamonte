@@ -1,19 +1,12 @@
-<div class="search-form" style="margin-bottom: 20px; text-align: center;">
-  <%= form_tag shopper_index_path, method: :get do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search products..." %>
-    <%= submit_tag "Search", class: "search-button" %>
-  <% end %>
-</div>
-
 <h1>Product Catalog</h1>
 <div id="products">
     <% @products_list.each do |product| %>
         <div class="product">
             <%= link_to product_path(product) do %>
-              <%= image_tag(product.image)%>
-              <h2><%= product.name %></h2>
-              <p><%= product.description %></p>
-              <p style="margin-bottom: 20px"><strong>Price: </strong>$<%= number_with_precision(product.price, precision: 2) %></p>
+                <%= image_tag(product.image)%>
+                <h2><%= product.name %></h2>
+                <p><%= product.description %></p>
+                <p style="margin-bottom: 20px"><strong>Price: </strong>$<%= number_with_precision(product.price, precision: 2) %></p>
             <% end %>
             <%= button_to("Add to Cart", lineitems_path(product_id: product), class: "add-to-cart") %>
         </div>
