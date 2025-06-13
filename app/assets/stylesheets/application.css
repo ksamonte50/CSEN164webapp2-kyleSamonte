@@ -109,11 +109,11 @@ h1 {
 .product strong {
     color: #222;
 }
-.product a {
+.product a, .title {
     color: black;
 }
 
-.product a:hover {
+.product a:hover, .title:hover {
     color: gray;
     text-decoration: none;
 }
