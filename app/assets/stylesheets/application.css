@@ -75,11 +75,12 @@ h1 {
 }
 
 /* Cart */
-#cart{
+#cart, .search-form{
     background: white;
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
 }
 
 #cart-actions {
@@ -88,6 +89,7 @@ h1 {
 }
 
 /* Search form */
+
 .search-inputs {
     display: flex;
     gap: 1rem;
@@ -139,7 +141,7 @@ a:hover {
     text-decoration: underline;
 }
 
-.button, button {
+.button, button, input[type="submit"] {
     display: inline-block;
     padding: 0.5rem 1rem;
     background-color: #2563eb;

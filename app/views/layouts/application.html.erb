@@ -24,22 +24,18 @@
 
   <body>
     <header class="main-header">
-      <div class="search-form" style="text-align: center;">
-        <%= form_tag shopper_index_path, method: :get, class: "search-inputs" do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search products...", style: "min-width: 300px" %>
-          <%= submit_tag "Search", class: "button" %>
-        <% end %>
-      </div>
       <% if session[:admin_id] %>
         <div class="admin-nav">
-          <span>Logged in as Admin</span>
+          <span style="color: blue">Logged in as Admin</span>
           <%= link_to 'Products', products_path %>
           <%= link_to 'Orders', orders_path %>
           <%= button_to 'Logout', logout_path, method: :delete %>
         </div>
       <% else %>
-        <div class="admin-nav">
-          <%= link_to 'Admin Login', login_path %>
+        <div class="admin-nav"> 
+          <%= link_to 'Admin Login', login_path %> 
+          # username: ksamonte
+          # password: 12345
         </div>
       <% end %>
     </header>
@@ -55,12 +51,19 @@
     <div style="border-bottom: 2px solid #ccc; text-align: center; margin-bottom: 20px;">
       <h1><%= link_to "Kyle's Online Sneaker Store", root_path, class: "title" %></h1>
     </div>
-    <div id="top-bar">
-      <div id="cart">
-        <h2>Your Cart</h2>
-        <%= render(@cart) %>
-      </div>
-    </div> 
+
+    <div class="search-form" style="text-align: center;">
+      <%= form_tag shopper_index_path, method: :get, class: "search-inputs" do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search products...", style: "min-width: 300px" %>
+        <%= submit_tag "Search", class: "button" %>
+      <% end %>
+    </div>
+
+    <div id="cart">
+      <h2>Your Cart</h2>
+      <%= render(@cart) %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
